@@ -1,7 +1,28 @@
+h1 {
+    text-transform: uppercase;
+    font-family: 'Arial Black';
+    font-weight: bolder;
+
+}
 
 body {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 200;
     text-align: center;
     background-color: bisque;
+}
+
+.listado {
+    margin: 0 auto;
+    width: 300px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.numero {
+    text-align: left;
+    display: inline-block;
+}
+
+li:hover {
+    background: #333;
+    color: antiquewhite;
 }
