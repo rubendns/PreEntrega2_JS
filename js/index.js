@@ -69,8 +69,8 @@ function verPrecios() {
         console.log(cod);
         verPrecio(cod);
     } else {
-        console.warn("No hay problema. Te esperamos cuando gustes :)");
-        alert("No hay problema. Te esperamos cuando gustes :)");
+        console.warn("Dale, No hay problema. Te esperamos cuando gustes :)");
+        alert("Dale, No hay problema. Te esperamos cuando gustes :)");
     }
 }
 
