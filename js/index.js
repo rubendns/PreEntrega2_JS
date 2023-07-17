@@ -76,12 +76,46 @@ function obtenerPrecio(cod) {
 function obtenerProductos() {
     let resultado = '';
     for (let clave in misBaterias) {
-        resultado += `Clave: ${clave}, Nombre: ${misBaterias[clave].nombre}, Precio: ${misBaterias[clave].precio}\n`;
+        resultado += `${clave} - ${misBaterias[clave].nombre}\n`;
     }
     return resultado;
 }
 
-function bienvenida() {
-    let opc=prompt(`¿Deseas conocer el precio de la bateria de algun modelo de iPhone? \n Seleccione un numero del listado:\n
-    ${obtenerProductos()}`);   
+function buscarBateria() {
+    let termino = prompt("Ingresa el término de búsqueda: ");
+    let resultados = [];
+
+    for (let clave in misBaterias) {
+        let nombreBateria = misBaterias[clave].nombre;
+        if (nombreBateria.toLowerCase().includes(termino.toLowerCase())) {
+            resultados.push(misBaterias[clave]);
+        }
+    }
+
+    if (resultados.length > 0) {
+        console.log(`Se encontraron ${resultados.length} resultado(s) para '${termino}':`);
+        for (let i = 0; i < resultados.length; i++) {
+            console.log(`${i + 1}. ${resultados[i].nombre}: $ ${resultados[i].precio}`);
+        }
+        alert(`Se encontraron ${resultados.length} resultado(s) para '${termino}'.`);
+    } else {
+        console.log(`No se encontraron resultados para '${termino}'.`);
+        alert(`No se encontraron resultados para '${termino}'.`);
+    }
+}
+
+function Bienvenida() {
+    let opc = prompt(`¿Deseas conocer el precio de la batería de algún modelo de iPhone? \n
+                        Seleccione 1 para ver listado\n
+                        Seleccione 2 para buscar una batería`);
+
+    if (opc === "1") {
+        let opc2 = prompt(`${obtenerProductos()}`);
+        verProducto(opc2);
+    } else if (opc === "2") {
+        buscarBateria(opc);
+    } else {
+        console.warn("Tu selección no es válida, por favor elige un número del listado");
+        alert("Tu selección no es válida, por favor elige un número del listado");
+    }
 }
